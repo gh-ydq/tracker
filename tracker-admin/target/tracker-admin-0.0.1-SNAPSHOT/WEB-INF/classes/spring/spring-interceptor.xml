@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>userInfoControllerService</value>
+				<value>deviceInfoControllerService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>bizInterceptor</value>
+			</list>
+		</property>
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+
+<!-- 	<mvc:interceptors> -->
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/**"/> -->
+<!-- 			<bean id="loginInterceptor" class="com.tracker.core.interceptor.LoginInterceptor"/> -->
+<!-- 		</mvc:interceptor> -->
+<!-- 	</mvc:interceptors> -->
+
+	<!-- <mvc:interceptor>
+		<mvc:mapping path="/**" />
+		<bean id="verifySignInterceptor" class=" com.ts88.appcredit.entry.interceptor.VerifySignInterceptor" />
+	</mvc:interceptor> -->
+
+	<!-- 统一异常拦截 -->
+	<bean class="com.tracker.core.interceptor.ExceptionHandler" />
+
+
+</beans>
