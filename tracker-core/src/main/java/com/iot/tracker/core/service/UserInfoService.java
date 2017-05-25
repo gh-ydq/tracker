@@ -6,7 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.iot.tracker.core.constants.AppCreditConstants;
+import com.iot.tracker.core.constants.CacheKey;
 import com.iot.tracker.core.dao.UserInfoMapper;
+import com.iot.tracker.core.dto.UserDto;
+import com.iot.tracker.core.util.MD5Util;
+import com.iot.tracker.core.util.RedisUtil;
 import com.iot.tracker.core.vo.UserInfo;
 import com.iot.tracker.core.vo.UserInfoExample;
 
@@ -35,6 +40,7 @@ public class UserInfoService {
 	   List<UserInfo> userInfos = userInfoMapper.selectByExample(example);
 	   return userInfos.size()<1?null:userInfos.get(0);
 	}
+   
 	
 	private UserInfo buildUserInfo(String userCode,String phoneNo,String password){
 		UserInfo userInfo = new UserInfo();

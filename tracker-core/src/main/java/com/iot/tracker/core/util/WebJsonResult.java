@@ -16,10 +16,14 @@ public class WebJsonResult<T> implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6168989699552155762L;
-	public static final String SUCCESS = "1";
-	public static final String FAIL = "-1";
+	public static final String SUCCESS = "0000";
+	public static final String FAIL = "9999";
 	
 	
+	/**
+	 * 
+	 */
+	private boolean result;
 	/**
 	 * 返回码值
 	 */
@@ -32,16 +36,28 @@ public class WebJsonResult<T> implements Serializable {
 	 * 返回消息
 	 */
 	private String retMsg;
-	public WebJsonResult(String code, T data, String message) {
+	
+	public WebJsonResult(boolean result ,String code, T data, String message) {
 		super();
+		this.result = result;
 		this.retCode = code;
 		this.data = data;
 		this.retMsg = message;
 	}
-	public WebJsonResult(String code, String message) {
+	public WebJsonResult(boolean result ,String code, String message) {
 		super();
+		this.result = result;
 		this.retCode = code;
 		this.retMsg = message;
+	}
+	
+	
+	public void setResult(boolean result) {
+		this.result = result;
+	}
+	
+	public boolean isResult() {
+		return result;
 	}
 	public String getCode() {
 		return retCode;
@@ -68,17 +84,17 @@ public class WebJsonResult<T> implements Serializable {
 	
 	
 	public static <T> WebJsonResult<T> buildSuccessResult(T t) {
-		return new WebJsonResult<T>(SUCCESS, t, null);
+		return new WebJsonResult<T>(true,SUCCESS, t, null);
 	}
 	public static <T> WebJsonResult<T> buildErrorResult(String message,T object){
-		return new WebJsonResult<T>(FAIL,object,message);
+		return new WebJsonResult<T>(false,FAIL,object,message);
 	}
 	
 	public static <T> WebJsonResult<T> buildErrorMessageResult(String message){
-		return new WebJsonResult<T>(FAIL,message);
+		return new WebJsonResult<T>(false,FAIL,message);
 	}
 
 	public static <T> WebJsonResult<T> buildErrorResult(BizEnum bizEnum) {
-		return new WebJsonResult<T>(bizEnum.getCode(),bizEnum.getMsg());
+		return new WebJsonResult<T>(false,bizEnum.getCode(),bizEnum.getMsg());
 	}
 }

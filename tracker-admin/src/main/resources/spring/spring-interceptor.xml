@@ -24,12 +24,13 @@
 		<property name="proxyTargetClass" value="true" />
 	</bean>
 
-<!-- 	<mvc:interceptors> -->
-<!-- 		<mvc:interceptor> -->
-<!-- 			<mvc:mapping path="/**"/> -->
-<!-- 			<bean id="loginInterceptor" class="com.tracker.core.interceptor.LoginInterceptor"/> -->
-<!-- 		</mvc:interceptor> -->
-<!-- 	</mvc:interceptors> -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/user/login"/>
+			<bean id="loginInterceptor" class="com.iot.tracker.core.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- <mvc:interceptor>
 		<mvc:mapping path="/**" />

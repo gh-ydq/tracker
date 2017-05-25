@@ -1,4 +1,4 @@
-package com.iot.tracker.core.interceptor;
+package com.iot.tracker.interceptor;
 
 import java.lang.annotation.*;
 

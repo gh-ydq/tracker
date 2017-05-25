@@ -1,4 +1,4 @@
-package com.iot.tracker.core.interceptor;
+package com.iot.tracker.interceptor;
 //package com.tracker.core.interceptor;
 //
 //import java.io.IOException;

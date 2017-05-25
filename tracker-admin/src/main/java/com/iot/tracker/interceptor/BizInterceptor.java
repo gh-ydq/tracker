@@ -1,4 +1,4 @@
-package com.iot.tracker.core.interceptor;
+package com.iot.tracker.interceptor;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -14,7 +14,6 @@ import com.iot.tracker.core.util.WebJsonResult;
 @Component
 public class BizInterceptor implements MethodInterceptor{
 	private static final Logger logger = LoggerFactory.getLogger(BizInterceptor.class);
-//    @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
         if(methodInvocation.getMethod().getAnnotation(ValidBiz.class)==null){
             return  methodInvocation.proceed();
@@ -36,13 +35,14 @@ public class BizInterceptor implements MethodInterceptor{
             logger.error("Entry BizException_2:arguments:{"+ JSON.toJSONString(methodInvocation.getArguments()) +"},result:{"+
                     JSON.toJSONString(result)+"},mehtodName:{"+ JSON.toJSONString(methodInvocation.getMethod().getName()) +
                     "},className:{" +JSON.toJSONString(methodInvocation.getMethod().getDeclaringClass().getName()) +"}",e);
-            return  new WebJsonResult(e.getCode(),null,e.getMsg());
+            return  new WebJsonResult(false,e.getCode(),null,e.getMsg());
         }catch (Exception e) {
             logger.error("Entry Exception:arguments InterException:{"+ JSON.toJSONString(methodInvocation.getArguments()) +"},result:{"+
                     JSON.toJSONString(result)+"},mehtodName:{"+ JSON.toJSONString(methodInvocation.getMethod().getName()) +
                     "},className:{" +JSON.toJSONString(methodInvocation.getMethod().getDeclaringClass().getName()) +"}",e);
-            return new WebJsonResult(BizEnum.E_SYS_ERROR.getCode(),null,BizEnum.E_SYS_ERROR.getMsg());
+            return new WebJsonResult(false,BizEnum.E_SYS_ERROR.getCode(),null,BizEnum.E_SYS_ERROR.getMsg());
         }
         return result;
     }
+  
 }

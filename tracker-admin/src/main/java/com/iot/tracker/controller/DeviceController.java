@@ -15,6 +15,7 @@ import com.iot.tracker.core.util.WebJsonResult;
 import com.iot.tracker.dto.req.device.DeviceReqParamDto;
 import com.iot.tracker.dto.resp.device.DeviceResultDto;
 import com.iot.tracker.service.DeviceInfoControllerService;
+import com.iot.tracker.session.UserContainer;
 
 @RequestMapping(value = "/device")
 @RestController
@@ -28,12 +29,12 @@ public class DeviceController {
 	@ResponseBody
 	public <T> WebJsonResult<T> addDeviceInfo(@RequestBody DeviceReqParamDto deviceReqParamDto){
 		logger.info("添加设备请求参数{}",deviceReqParamDto.toString());
-		return deviceInfoControllerService.addDeviceInfo(deviceReqParamDto);
+		return deviceInfoControllerService.addDeviceInfo(UserContainer.getUserCode(),deviceReqParamDto);
 	}
 	
 	@RequestMapping("/find")
 	@ResponseBody
 	public WebJsonResult<List<DeviceResultDto>> findDeviceInfo(){
-		return deviceInfoControllerService.findDeviceInfo(TestConstants.userCode);
+		return deviceInfoControllerService.findDeviceInfo(UserContainer.getUserCode());
 	}
 }
