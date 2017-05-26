@@ -51,19 +51,17 @@ public class WebJsonResult<T> implements Serializable {
 		this.retMsg = message;
 	}
 	
-	
-	public void setResult(boolean result) {
-		this.result = result;
-	}
-	
 	public boolean isResult() {
 		return result;
 	}
-	public String getCode() {
+	public void setResult(boolean result) {
+		this.result = result;
+	}
+	public String getRetCode() {
 		return retCode;
 	}
-	public void setCode(String code) {
-		this.retCode = code;
+	public void setRetCode(String retCode) {
+		this.retCode = retCode;
 	}
 	public T getData() {
 		return data;
@@ -71,15 +69,15 @@ public class WebJsonResult<T> implements Serializable {
 	public void setData(T data) {
 		this.data = data;
 	}
-	public String getMessage() {
+	public String getRetMsg() {
 		return retMsg;
 	}
-	public void setMessage(String message) {
-		this.retMsg = message;
+	public void setRetMsg(String retMsg) {
+		this.retMsg = retMsg;
 	}
 	@Override
 	public String toString() {
-		return "WebJsonResult [code=" + retCode + ", data=" + data + ", message=" + retMsg + "]";
+		return "WebJsonResult [retCode=" + retCode + ", data=" + data + ", retMsg=" + retMsg + "]";
 	}
 	
 	

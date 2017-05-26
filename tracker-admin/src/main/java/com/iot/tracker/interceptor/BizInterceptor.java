@@ -26,7 +26,7 @@ public class BizInterceptor implements MethodInterceptor{
         }
         try{
             result = methodInvocation.proceed();
-            if(result == null || !WebJsonResult.SUCCESS.equals(((WebJsonResult<?>)result).getCode())) {
+            if(result == null || !WebJsonResult.SUCCESS.equals(((WebJsonResult<?>)result).getRetCode())) {
                 logger.error("Entry BizException_1:arguments:{},result:{},mehtodName:{},className:{}",
                         JSON.toJSONString(methodInvocation.getArguments()),JSON.toJSONString(result),
                         JSON.toJSONString(methodInvocation.getMethod().getName()),JSON.toJSONString(methodInvocation.getMethod().getDeclaringClass().getName()));

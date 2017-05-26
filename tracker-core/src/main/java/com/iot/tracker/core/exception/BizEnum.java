@@ -12,6 +12,7 @@ public enum BizEnum {
 	//用户相关code 1000-1999
 	USER_EXIST("1000","用户已经存在"),
 	USER_NO_EXIST("1002","用户不存在，请注册"),
+	USER_PHONE_REGITERED("1004","改手机号已注册"),
 	
 	USER_PASSWORD_ERROR("1003","密码错误"),
 	SMS_VERIFY_CODE_FAIL("1001","短信验证码错误,请重新获取"),

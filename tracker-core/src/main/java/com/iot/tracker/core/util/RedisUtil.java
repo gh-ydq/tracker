@@ -76,6 +76,42 @@ public class RedisUtil {
 		RedisUtil.serverDefaultDb = serverDefaultDb;
 	}
 
+//	/****
+//	 * 通过配置得到 Jedis
+//	 * 
+//	 * @return Jedis实例
+//	 */
+//	public static final Jedis getConnection() {
+//		Jedis jedis = null;
+//		try {// 双重检查
+//			if (jedisPool == null) {
+//				synchronized (lockObj) {
+//					if (jedisPool == null) {
+//						JedisPoolConfig config = new JedisPoolConfig();
+//						config.setMaxTotal(serverMaxTotal);
+//						config.setMaxIdle(serverMaxIdle);
+//						config.setMaxWaitMillis(serverMaxWait);
+//						config.setTestOnBorrow(serverTestOnBorrow);
+//						defautlDb = (serverDefaultDb > 15 || serverDefaultDb < 0) ? 0 : serverDefaultDb;
+//						String password = serverPassword;
+//						if (StringUtils.isBlank(password)) {// 没有设置密码
+//							jedisPool = new JedisPool(config, serverHost, serverPort);
+//						} else {// 设置密码
+//							jedisPool = new JedisPool(config, serverHost, serverPort, serverMaxWait, password);
+//						}
+//						logger.info("初始化池成功，连接信息：{}:{}?defautlDb={}", serverHost, serverPort, defautlDb);
+//					}
+//				}
+//			}
+//			jedis = jedisPool.getResource();
+//			jedis.select(defautlDb);
+//		} catch (Exception e) {
+//			logger.error("获取redis连接池失败", e);
+//			throw new RuntimeException(e);
+//		}
+//		return jedis;
+//	}
+	
 	/****
 	 * 通过配置得到 Jedis
 	 * 
@@ -88,18 +124,17 @@ public class RedisUtil {
 				synchronized (lockObj) {
 					if (jedisPool == null) {
 						JedisPoolConfig config = new JedisPoolConfig();
-						config.setMaxTotal(serverMaxTotal);
-						config.setMaxIdle(serverMaxIdle);
-						config.setMaxWaitMillis(serverMaxWait);
-						config.setTestOnBorrow(serverTestOnBorrow);
-						defautlDb = (serverDefaultDb > 15 || serverDefaultDb < 0) ? 0 : serverDefaultDb;
-						String password = serverPassword;
+						config.setMaxTotal(200);
+						config.setMaxIdle(10);
+						config.setMaxWaitMillis(10000);
+						config.setTestOnBorrow(true);
+						String password = "";
 						if (StringUtils.isBlank(password)) {// 没有设置密码
-							jedisPool = new JedisPool(config, serverHost, serverPort);
+							jedisPool = new JedisPool(config, "127.0.0.1", 6379);
 						} else {// 设置密码
-							jedisPool = new JedisPool(config, serverHost, serverPort, serverMaxWait, password);
+							jedisPool = new JedisPool(config, "127.0.0.1", 6379, 10000, password);
 						}
-						logger.info("初始化池成功，连接信息：{}:{}?defautlDb={}", serverHost, serverPort, defautlDb);
+						logger.info("初始化池成功，连接信息：{}:{}?defautlDb={}", "127.0.0.1", 6379, defautlDb);
 					}
 				}
 			}

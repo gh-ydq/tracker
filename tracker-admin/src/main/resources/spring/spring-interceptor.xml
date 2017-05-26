@@ -27,8 +27,9 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/user/register"/>
 			<mvc:exclude-mapping path="/user/login"/>
-			<bean id="loginInterceptor" class="com.iot.tracker.core.interceptor.LoginInterceptor"/>
+			<bean id="loginInterceptor" class="com.iot.tracker.interceptor.LoginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
@@ -38,7 +39,7 @@
 	</mvc:interceptor> -->
 
 	<!-- 统一异常拦截 -->
-	<bean class="com.iot.tracker.core.interceptor.ExceptionHandler" />
+	<bean class="com.iot.tracker.interceptor.ExceptionHandler" />
 
 
 </beans>

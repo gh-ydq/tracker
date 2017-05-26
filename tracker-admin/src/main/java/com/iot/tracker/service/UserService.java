@@ -19,7 +19,6 @@ public class UserService {
 
 	private static Logger log = LoggerFactory.getLogger(UserService.class);
 	
-	@Autowired
 	private RedisUtil redisUtil;
 
 	@ValidBiz

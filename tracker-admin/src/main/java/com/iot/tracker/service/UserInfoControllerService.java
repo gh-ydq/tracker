@@ -26,14 +26,16 @@ import com.iot.tracker.interceptor.ValidBiz;
 @Service
 public class UserInfoControllerService {
 	private Logger logger = LoggerFactory.getLogger(UserInfoControllerService.class);
-	private final static String VERIFY_CODE = "8888";
+	private final static String VERIFY_CODE = "888888";
 	@Autowired
 	private UserInfoManage userInfoManage;
-	
+	@Autowired
+	private CheckService checkService;
 	@ValidBiz
 	public WebJsonResult<RegisterResultDto> register(RegisterReqParamDto registerParamDto){
 		logger.info("注册时参数 param{}",registerParamDto.toString());
-		checkVerifyCode(registerParamDto.getPasword(), registerParamDto.getVerifyCode());
+		checkService.checkPhoneNoIsRegister(registerParamDto.getPhoneNo());
+		checkVerifyCode(registerParamDto.getPhoneNo(), registerParamDto.getVerifyCode());
 		RegisterResultDto registerRespParamDto = new RegisterResultDto();
 		String userCode = BizUtil.generateUserCode();
 		UserDto userDto = buildUserDto(userCode, registerParamDto.getPhoneNo());
@@ -52,9 +54,12 @@ public class UserInfoControllerService {
 		}else if(!userInfo.getPassword().equals(loginReqParamDto.getPassword())){
 			throw new BizException(BizEnum.USER_PASSWORD_ERROR);
 		}
-		LonginResultDto LonginResultDto = new LonginResultDto();
-		LonginResultDto.setTocken("1234567");
-		return WebJsonResult.buildSuccessResult(LonginResultDto);
+		LonginResultDto longinResultDto = new LonginResultDto();
+		
+		UserDto userDto = buildUserDto(userInfo.getUserCode(), loginReqParamDto.getPhoneNo());
+		String tocken = buildLoginToken(userDto);
+		longinResultDto.setTocken(tocken);
+		return WebJsonResult.buildSuccessResult(longinResultDto);
 	}
 	
 	 private UserDto buildUserDto(String userCode,String phoneNo){
