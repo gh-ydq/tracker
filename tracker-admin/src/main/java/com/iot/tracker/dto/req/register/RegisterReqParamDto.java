@@ -5,7 +5,8 @@ public class RegisterReqParamDto{
 
 	private String phoneNo;
 	private String verifyCode;
-	private String pasword;
+	private String password;
+	private String confirmPwd;
 	
 	public String getPhoneNo() {
 		return phoneNo;
@@ -19,16 +20,28 @@ public class RegisterReqParamDto{
 	public void setVerifyCode(String verifyCode) {
 		this.verifyCode = verifyCode;
 	}
-	public String getPasword() {
-		return pasword;
+	public String getPassword() {
+		return password;
 	}
-	public void setPasword(String pasword) {
-		this.pasword = pasword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
+	
+	public String getConfirmPwd() {
+		return confirmPwd;
+	}
+	public void setConfirmPwd(String confirmPwd) {
+		this.confirmPwd = confirmPwd;
+	}
+	
 	@Override
 	public String toString() {
-		return "RegisterReqParamDto [phoneNo=" + phoneNo + ", verifyCode=" + verifyCode + ", pasword=" + pasword + "]";
+		return "RegisterReqParamDto [phoneNo=" + phoneNo + ", verifyCode=" + verifyCode + ", password=" + password
+				+ ", confirmPwd=" + confirmPwd + "]";
 	}
+	
+	
+	
 	
 	
 }

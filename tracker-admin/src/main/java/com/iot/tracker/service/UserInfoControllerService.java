@@ -41,7 +41,7 @@ public class UserInfoControllerService {
 		UserDto userDto = buildUserDto(userCode, registerParamDto.getPhoneNo());
 		String tocken = buildLoginToken(userDto);
 		registerRespParamDto.setTocken(tocken);
-		userInfoManage.saveUserInfo(userCode, registerParamDto.getPhoneNo(), registerParamDto.getPasword());;
+		userInfoManage.saveUserInfo(userCode, registerParamDto.getPhoneNo(), registerParamDto.getPassword());;
 		return WebJsonResult.buildSuccessResult(registerRespParamDto);
 	}
 	

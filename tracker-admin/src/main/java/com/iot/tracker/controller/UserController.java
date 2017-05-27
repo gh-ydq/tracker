@@ -22,7 +22,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/register")
 	@ResponseBody
-	public WebJsonResult<RegisterResultDto> register(@RequestBody RegisterReqParamDto registerParamDto){
+	public WebJsonResult<RegisterResultDto> register(@RequestBody RegisterReqParamDto registerParamDto,@RequestHeader(value="X-Channel") String channel){
 		return userInfoService.register(registerParamDto);
 	}
 	
