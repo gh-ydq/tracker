@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.iot.tracker.constants.TestConstants;
 import com.iot.tracker.core.util.WebJsonResult;
 import com.iot.tracker.dto.req.device.DeviceReqParamDto;
 import com.iot.tracker.dto.resp.device.DeviceResultDto;
