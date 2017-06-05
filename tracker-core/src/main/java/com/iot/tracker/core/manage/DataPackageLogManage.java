@@ -9,7 +9,7 @@ import com.iot.tracker.core.vo.DataPackageLog;
 public class DataPackageLogManage {
 	private DataPackageLogMapper dataPackageLogMapper;
 	
-	private void saveDataPackageLog(DataPackageLog dataPackageLog){
-		
+	public void saveDataPackageLog(DataPackageLog dataPackageLog){
+		dataPackageLogMapper.insertSelective(dataPackageLog);
 	}
 }

@@ -425,6 +425,546 @@ public class DataPackageLogExample {
             return (Criteria) this;
         }
 
+        public Criteria andHightIsNull() {
+            addCriterion("hight is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightIsNotNull() {
+            addCriterion("hight is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightEqualTo(Integer value) {
+            addCriterion("hight =", value, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightNotEqualTo(Integer value) {
+            addCriterion("hight <>", value, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightGreaterThan(Integer value) {
+            addCriterion("hight >", value, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightGreaterThanOrEqualTo(Integer value) {
+            addCriterion("hight >=", value, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightLessThan(Integer value) {
+            addCriterion("hight <", value, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightLessThanOrEqualTo(Integer value) {
+            addCriterion("hight <=", value, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightIn(List<Integer> values) {
+            addCriterion("hight in", values, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightNotIn(List<Integer> values) {
+            addCriterion("hight not in", values, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightBetween(Integer value1, Integer value2) {
+            addCriterion("hight between", value1, value2, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andHightNotBetween(Integer value1, Integer value2) {
+            addCriterion("hight not between", value1, value2, "hight");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedIsNull() {
+            addCriterion("speed is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedIsNotNull() {
+            addCriterion("speed is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedEqualTo(Double value) {
+            addCriterion("speed =", value, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedNotEqualTo(Double value) {
+            addCriterion("speed <>", value, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedGreaterThan(Double value) {
+            addCriterion("speed >", value, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedGreaterThanOrEqualTo(Double value) {
+            addCriterion("speed >=", value, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedLessThan(Double value) {
+            addCriterion("speed <", value, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedLessThanOrEqualTo(Double value) {
+            addCriterion("speed <=", value, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedIn(List<Double> values) {
+            addCriterion("speed in", values, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedNotIn(List<Double> values) {
+            addCriterion("speed not in", values, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedBetween(Double value1, Double value2) {
+            addCriterion("speed between", value1, value2, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpeedNotBetween(Double value1, Double value2) {
+            addCriterion("speed not between", value1, value2, "speed");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarIsNull() {
+            addCriterion("star is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarIsNotNull() {
+            addCriterion("star is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarEqualTo(Integer value) {
+            addCriterion("star =", value, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarNotEqualTo(Integer value) {
+            addCriterion("star <>", value, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarGreaterThan(Integer value) {
+            addCriterion("star >", value, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarGreaterThanOrEqualTo(Integer value) {
+            addCriterion("star >=", value, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarLessThan(Integer value) {
+            addCriterion("star <", value, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarLessThanOrEqualTo(Integer value) {
+            addCriterion("star <=", value, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarIn(List<Integer> values) {
+            addCriterion("star in", values, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarNotIn(List<Integer> values) {
+            addCriterion("star not in", values, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarBetween(Integer value1, Integer value2) {
+            addCriterion("star between", value1, value2, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andStarNotBetween(Integer value1, Integer value2) {
+            addCriterion("star not between", value1, value2, "star");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeIsNull() {
+            addCriterion("time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeIsNotNull() {
+            addCriterion("time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeEqualTo(Integer value) {
+            addCriterion("time =", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeNotEqualTo(Integer value) {
+            addCriterion("time <>", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeGreaterThan(Integer value) {
+            addCriterion("time >", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("time >=", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeLessThan(Integer value) {
+            addCriterion("time <", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeLessThanOrEqualTo(Integer value) {
+            addCriterion("time <=", value, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeIn(List<Integer> values) {
+            addCriterion("time in", values, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeNotIn(List<Integer> values) {
+            addCriterion("time not in", values, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeBetween(Integer value1, Integer value2) {
+            addCriterion("time between", value1, value2, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andTimeNotBetween(Integer value1, Integer value2) {
+            addCriterion("time not between", value1, value2, "time");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(Integer value) {
+            addCriterion("status =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(Integer value) {
+            addCriterion("status <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(Integer value) {
+            addCriterion("status >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("status >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(Integer value) {
+            addCriterion("status <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("status <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<Integer> values) {
+            addCriterion("status in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<Integer> values) {
+            addCriterion("status not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
+            addCriterion("status between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("status not between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusIsNull() {
+            addCriterion("power_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusIsNotNull() {
+            addCriterion("power_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusEqualTo(Integer value) {
+            addCriterion("power_status =", value, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusNotEqualTo(Integer value) {
+            addCriterion("power_status <>", value, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusGreaterThan(Integer value) {
+            addCriterion("power_status >", value, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("power_status >=", value, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusLessThan(Integer value) {
+            addCriterion("power_status <", value, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("power_status <=", value, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusIn(List<Integer> values) {
+            addCriterion("power_status in", values, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusNotIn(List<Integer> values) {
+            addCriterion("power_status not in", values, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusBetween(Integer value1, Integer value2) {
+            addCriterion("power_status between", value1, value2, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andPowerStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("power_status not between", value1, value2, "powerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusIsNull() {
+            addCriterion("e_door_switch_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusIsNotNull() {
+            addCriterion("e_door_switch_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusEqualTo(Integer value) {
+            addCriterion("e_door_switch_status =", value, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusNotEqualTo(Integer value) {
+            addCriterion("e_door_switch_status <>", value, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusGreaterThan(Integer value) {
+            addCriterion("e_door_switch_status >", value, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("e_door_switch_status >=", value, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusLessThan(Integer value) {
+            addCriterion("e_door_switch_status <", value, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("e_door_switch_status <=", value, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusIn(List<Integer> values) {
+            addCriterion("e_door_switch_status in", values, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusNotIn(List<Integer> values) {
+            addCriterion("e_door_switch_status not in", values, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusBetween(Integer value1, Integer value2) {
+            addCriterion("e_door_switch_status between", value1, value2, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andEDoorSwitchStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("e_door_switch_status not between", value1, value2, "eDoorSwitchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusIsNull() {
+            addCriterion("silent_mode_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusIsNotNull() {
+            addCriterion("silent_mode_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusEqualTo(Integer value) {
+            addCriterion("silent_mode_status =", value, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusNotEqualTo(Integer value) {
+            addCriterion("silent_mode_status <>", value, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusGreaterThan(Integer value) {
+            addCriterion("silent_mode_status >", value, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("silent_mode_status >=", value, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusLessThan(Integer value) {
+            addCriterion("silent_mode_status <", value, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("silent_mode_status <=", value, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusIn(List<Integer> values) {
+            addCriterion("silent_mode_status in", values, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusNotIn(List<Integer> values) {
+            addCriterion("silent_mode_status not in", values, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusBetween(Integer value1, Integer value2) {
+            addCriterion("silent_mode_status between", value1, value2, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andSilentModeStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("silent_mode_status not between", value1, value2, "silentModeStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusIsNull() {
+            addCriterion("bluetooth_lock_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusIsNotNull() {
+            addCriterion("bluetooth_lock_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusEqualTo(Integer value) {
+            addCriterion("bluetooth_lock_status =", value, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusNotEqualTo(Integer value) {
+            addCriterion("bluetooth_lock_status <>", value, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusGreaterThan(Integer value) {
+            addCriterion("bluetooth_lock_status >", value, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("bluetooth_lock_status >=", value, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusLessThan(Integer value) {
+            addCriterion("bluetooth_lock_status <", value, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("bluetooth_lock_status <=", value, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusIn(List<Integer> values) {
+            addCriterion("bluetooth_lock_status in", values, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusNotIn(List<Integer> values) {
+            addCriterion("bluetooth_lock_status not in", values, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusBetween(Integer value1, Integer value2) {
+            addCriterion("bluetooth_lock_status between", value1, value2, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andBluetoothLockStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("bluetooth_lock_status not between", value1, value2, "bluetoothLockStatus");
+            return (Criteria) this;
+        }
+
         public Criteria andDataTypeIsNull() {
             addCriterion("data_type is null");
             return (Criteria) this;

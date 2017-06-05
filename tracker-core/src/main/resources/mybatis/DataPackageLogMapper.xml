@@ -7,6 +7,15 @@
     <result column="device_code" property="deviceCode" jdbcType="VARCHAR" />
     <result column="lgt" property="lgt" jdbcType="DOUBLE" />
     <result column="lat" property="lat" jdbcType="DOUBLE" />
+    <result column="hight" property="hight" jdbcType="INTEGER" />
+    <result column="speed" property="speed" jdbcType="DOUBLE" />
+    <result column="star" property="star" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="power_status" property="powerStatus" jdbcType="INTEGER" />
+    <result column="e_door_switch_status" property="eDoorSwitchStatus" jdbcType="INTEGER" />
+    <result column="silent_mode_status" property="silentModeStatus" jdbcType="INTEGER" />
+    <result column="bluetooth_lock_status" property="bluetoothLockStatus" jdbcType="INTEGER" />
     <result column="data_type" property="dataType" jdbcType="VARCHAR" />
     <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -70,7 +79,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, user_code, device_code, lgt, lat, data_type, created_time, update_time
+    id, user_code, device_code, lgt, lat, hight, speed, star, time, status, power_status, 
+    e_door_switch_status, silent_mode_status, bluetooth_lock_status, data_type, created_time, 
+    update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.iot.tracker.core.vo.DataPackageLogExample" >
     select
@@ -104,10 +115,16 @@
   </delete>
   <insert id="insert" parameterType="com.iot.tracker.core.vo.DataPackageLog" >
     insert into data_package_log (id, user_code, device_code, 
-      lgt, lat, data_type, created_time, 
+      lgt, lat, hight, speed, 
+      star, time, status, 
+      power_status, e_door_switch_status, silent_mode_status, 
+      bluetooth_lock_status, data_type, created_time, 
       update_time)
     values (#{id,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{deviceCode,jdbcType=VARCHAR}, 
-      #{lgt,jdbcType=DOUBLE}, #{lat,jdbcType=DOUBLE}, #{dataType,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{lgt,jdbcType=DOUBLE}, #{lat,jdbcType=DOUBLE}, #{hight,jdbcType=INTEGER}, #{speed,jdbcType=DOUBLE}, 
+      #{star,jdbcType=INTEGER}, #{time,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{powerStatus,jdbcType=INTEGER}, #{eDoorSwitchStatus,jdbcType=INTEGER}, #{silentModeStatus,jdbcType=INTEGER}, 
+      #{bluetoothLockStatus,jdbcType=INTEGER}, #{dataType,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.iot.tracker.core.vo.DataPackageLog" >
@@ -127,6 +144,33 @@
       </if>
       <if test="lat != null" >
         lat,
+      </if>
+      <if test="hight != null" >
+        hight,
+      </if>
+      <if test="speed != null" >
+        speed,
+      </if>
+      <if test="star != null" >
+        star,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="powerStatus != null" >
+        power_status,
+      </if>
+      <if test="eDoorSwitchStatus != null" >
+        e_door_switch_status,
+      </if>
+      <if test="silentModeStatus != null" >
+        silent_mode_status,
+      </if>
+      <if test="bluetoothLockStatus != null" >
+        bluetooth_lock_status,
       </if>
       <if test="dataType != null" >
         data_type,
@@ -153,6 +197,33 @@
       </if>
       <if test="lat != null" >
         #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="hight != null" >
+        #{hight,jdbcType=INTEGER},
+      </if>
+      <if test="speed != null" >
+        #{speed,jdbcType=DOUBLE},
+      </if>
+      <if test="star != null" >
+        #{star,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="powerStatus != null" >
+        #{powerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="eDoorSwitchStatus != null" >
+        #{eDoorSwitchStatus,jdbcType=INTEGER},
+      </if>
+      <if test="silentModeStatus != null" >
+        #{silentModeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bluetoothLockStatus != null" >
+        #{bluetoothLockStatus,jdbcType=INTEGER},
       </if>
       <if test="dataType != null" >
         #{dataType,jdbcType=VARCHAR},
@@ -189,6 +260,33 @@
       <if test="record.lat != null" >
         lat = #{record.lat,jdbcType=DOUBLE},
       </if>
+      <if test="record.hight != null" >
+        hight = #{record.hight,jdbcType=INTEGER},
+      </if>
+      <if test="record.speed != null" >
+        speed = #{record.speed,jdbcType=DOUBLE},
+      </if>
+      <if test="record.star != null" >
+        star = #{record.star,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.powerStatus != null" >
+        power_status = #{record.powerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.eDoorSwitchStatus != null" >
+        e_door_switch_status = #{record.eDoorSwitchStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.silentModeStatus != null" >
+        silent_mode_status = #{record.silentModeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.bluetoothLockStatus != null" >
+        bluetooth_lock_status = #{record.bluetoothLockStatus,jdbcType=INTEGER},
+      </if>
       <if test="record.dataType != null" >
         data_type = #{record.dataType,jdbcType=VARCHAR},
       </if>
@@ -210,6 +308,15 @@
       device_code = #{record.deviceCode,jdbcType=VARCHAR},
       lgt = #{record.lgt,jdbcType=DOUBLE},
       lat = #{record.lat,jdbcType=DOUBLE},
+      hight = #{record.hight,jdbcType=INTEGER},
+      speed = #{record.speed,jdbcType=DOUBLE},
+      star = #{record.star,jdbcType=INTEGER},
+      time = #{record.time,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      power_status = #{record.powerStatus,jdbcType=INTEGER},
+      e_door_switch_status = #{record.eDoorSwitchStatus,jdbcType=INTEGER},
+      silent_mode_status = #{record.silentModeStatus,jdbcType=INTEGER},
+      bluetooth_lock_status = #{record.bluetoothLockStatus,jdbcType=INTEGER},
       data_type = #{record.dataType,jdbcType=VARCHAR},
       created_time = #{record.createdTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -232,6 +339,33 @@
       <if test="lat != null" >
         lat = #{lat,jdbcType=DOUBLE},
       </if>
+      <if test="hight != null" >
+        hight = #{hight,jdbcType=INTEGER},
+      </if>
+      <if test="speed != null" >
+        speed = #{speed,jdbcType=DOUBLE},
+      </if>
+      <if test="star != null" >
+        star = #{star,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="powerStatus != null" >
+        power_status = #{powerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="eDoorSwitchStatus != null" >
+        e_door_switch_status = #{eDoorSwitchStatus,jdbcType=INTEGER},
+      </if>
+      <if test="silentModeStatus != null" >
+        silent_mode_status = #{silentModeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bluetoothLockStatus != null" >
+        bluetooth_lock_status = #{bluetoothLockStatus,jdbcType=INTEGER},
+      </if>
       <if test="dataType != null" >
         data_type = #{dataType,jdbcType=VARCHAR},
       </if>
@@ -250,6 +384,15 @@
       device_code = #{deviceCode,jdbcType=VARCHAR},
       lgt = #{lgt,jdbcType=DOUBLE},
       lat = #{lat,jdbcType=DOUBLE},
+      hight = #{hight,jdbcType=INTEGER},
+      speed = #{speed,jdbcType=DOUBLE},
+      star = #{star,jdbcType=INTEGER},
+      time = #{time,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      power_status = #{powerStatus,jdbcType=INTEGER},
+      e_door_switch_status = #{eDoorSwitchStatus,jdbcType=INTEGER},
+      silent_mode_status = #{silentModeStatus,jdbcType=INTEGER},
+      bluetooth_lock_status = #{bluetoothLockStatus,jdbcType=INTEGER},
       data_type = #{dataType,jdbcType=VARCHAR},
       created_time = #{createdTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
