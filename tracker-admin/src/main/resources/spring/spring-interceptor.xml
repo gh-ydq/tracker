@@ -29,6 +29,7 @@
 			<mvc:mapping path="/**"/>
 			<mvc:exclude-mapping path="/user/register"/>
 			<mvc:exclude-mapping path="/user/login"/>
+			<mvc:exclude-mapping path="/upstream/*"/>
 			<bean id="loginInterceptor" class="com.iot.tracker.interceptor.LoginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
