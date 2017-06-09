@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.iot.tracker.core.manage.DataPackageLogManage;
+import com.iot.tracker.core.manage.UserDeviceInfoManage;
 import com.iot.tracker.core.vo.DataPackageLog;
+import com.iot.tracker.core.vo.UserDeviceInfo;
 import com.iot.tracker.dto.upstream.pg.PGPacketDto;
 
 @Service
@@ -17,12 +19,25 @@ public class PGService {
 	private Logger logger = LoggerFactory.getLogger(PGService.class);
 	@Autowired
 	private DataPackageLogManage dataPackageLogManage;
+	@Autowired
+	private UserDeviceInfoManage userdeviceInfoManage;
+	
 	
 	@Transactional
-	public void savePGMsg(PGPacketDto pgPacketDto,String userCode){
+	public void savePGMsg(PGPacketDto pgPacketDto){
 		logger.info("PG包请求参数{}",pgPacketDto.toString());
+		String userCode = getUserCode(pgPacketDto.getImei()+"");
 		DataPackageLog dataPackageLog = buildDataPackageLog(pgPacketDto, userCode);
 		dataPackageLogManage.saveDataPackageLog(dataPackageLog);
+	}
+	
+	private String getUserCode(String deviceCode){
+		UserDeviceInfo userDeviceInfo = userdeviceInfoManage.findByDeviceCode(deviceCode);
+		if(userDeviceInfo != null){
+			return userDeviceInfo.getDeviceCode();
+		}else{
+			return null;
+		}
 	}
 	
 	private DataPackageLog buildDataPackageLog(PGPacketDto pgPacketDto,String userCode){

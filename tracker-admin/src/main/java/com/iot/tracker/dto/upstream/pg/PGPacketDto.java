@@ -4,7 +4,7 @@ import com.iot.tracker.dto.upstream.DatagramPacketBasicDto;
 import com.iot.tracker.dto.upstream.GPRSSubStatus;
 
 /**
- * PG ����Ӧ�Ĳ���
+ * PG 
  * @author yudengqiu
  *
  */

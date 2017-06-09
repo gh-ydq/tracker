@@ -21,4 +21,8 @@ public class UserDeviceInfoManage {
 	public List<UserDeviceInfo> findUserDeviceInfos(String userCode){
 		return userDeviceInfoService.findUserDeviceInfos(userCode);
 	}
+	
+	public UserDeviceInfo findByDeviceCode(String deviceCode){
+		return userDeviceInfoService.findByDeviceCode(deviceCode);
+	}
 }
