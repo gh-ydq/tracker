@@ -18,7 +18,6 @@ public class PGController {
 	
 	@Autowired
 	private PGService pgService;
-	@Autowired
 	
 	@RequestMapping(value = "/pg")
 	@ResponseBody

@@ -34,11 +34,6 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
-	<!-- <mvc:interceptor>
-		<mvc:mapping path="/**" />
-		<bean id="verifySignInterceptor" class=" com.ts88.appcredit.entry.interceptor.VerifySignInterceptor" />
-	</mvc:interceptor> -->
-
 	<!-- 统一异常拦截 -->
 	<bean class="com.iot.tracker.interceptor.ExceptionHandler" />
 
