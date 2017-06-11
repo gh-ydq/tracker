@@ -1,16 +1,20 @@
 package com.iot.tracker.dto.upstream.pg;
 
-import com.iot.tracker.dto.upstream.DatagramPacketBasicDto;
-import com.iot.tracker.dto.upstream.GPRSSubStatus;
+import java.io.Serializable;
 
 /**
  * PG 
  * @author yudengqiu
  *
  */
-public class PGPacketDto extends DatagramPacketBasicDto  {
+public class PGPacketDto implements Serializable {
 
 	private static final long serialVersionUID = -8597161566517930453L;
+	
+	private char header0;
+	private char header1;
+	// IMEI 号
+	private int imei;
 	//数据包字节数
 	private int length;
 	// 经度
@@ -28,10 +32,36 @@ public class PGPacketDto extends DatagramPacketBasicDto  {
 	//UnixTime 时间，0时区，具体时区由应用层计算
 	private int time;
 	
-	private GPRSSubStatus pgSubStatus;
+	// Bit0：电源(1接通，0断开）
+	private byte powerStatus;
+	//电门锁开关  bit1
+	private byte EDoorSwitchStatus;
+	//Bit2： 是否为静默模式
+	private byte silentModeStatus;
+	//Bit3：蓝牙是否锁车（1布防，0撤防）
+	private byte bluetoothLockStatus;
 	
 	
 	
+	
+	public char getHeader0() {
+		return header0;
+	}
+	public void setHeader0(char header0) {
+		this.header0 = header0;
+	}
+	public char getHeader1() {
+		return header1;
+	}
+	public void setHeader1(char header1) {
+		this.header1 = header1;
+	}
+	public int getImei() {
+		return imei;
+	}
+	public void setImei(int imei) {
+		this.imei = imei;
+	}
 	public int getLength() {
 		return length;
 	}
@@ -74,13 +104,32 @@ public class PGPacketDto extends DatagramPacketBasicDto  {
 	public void setStar(byte star) {
 		this.star = star;
 	}
-	public GPRSSubStatus getPgSubStatus() {
-		return pgSubStatus;
-	}
-	public void setPgSubStatus(GPRSSubStatus pgSubStatus) {
-		this.pgSubStatus = pgSubStatus;
-	}
 	
+	
+	public byte getPowerStatus() {
+		return powerStatus;
+	}
+	public void setPowerStatus(byte powerStatus) {
+		this.powerStatus = powerStatus;
+	}
+	public byte getEDoorSwitchStatus() {
+		return EDoorSwitchStatus;
+	}
+	public void setEDoorSwitchStatus(byte eDoorSwitchStatus) {
+		EDoorSwitchStatus = eDoorSwitchStatus;
+	}
+	public byte getSilentModeStatus() {
+		return silentModeStatus;
+	}
+	public void setSilentModeStatus(byte silentModeStatus) {
+		this.silentModeStatus = silentModeStatus;
+	}
+	public byte getBluetoothLockStatus() {
+		return bluetoothLockStatus;
+	}
+	public void setBluetoothLockStatus(byte bluetoothLockStatus) {
+		this.bluetoothLockStatus = bluetoothLockStatus;
+	}
 	public int getTime() {
 		return time;
 	}
@@ -89,8 +138,11 @@ public class PGPacketDto extends DatagramPacketBasicDto  {
 	}
 	@Override
 	public String toString() {
-		return "PGPacketDto [length=" + length +", getHeader1()=" + getHeader1() + ", getImei()=" + getImei()+ ", lng=" + lng + ", lat=" + lat + ", hight=" + hight + ", speed="
-				+ speed + ", status=" + status + ", star=" + star + ", time=" + time+ ", pgSubStatus=" + pgSubStatus.toString() + "]";
+		return "PGPacketDto [header0=" + header0 + ", header1=" + header1 + ", imei=" + imei + ", length=" + length
+				+ ", lng=" + lng + ", lat=" + lat + ", hight=" + hight + ", speed=" + speed + ", status=" + status
+				+ ", star=" + star + ", time=" + time + ", powerStatus=" + powerStatus + ", EDoorSwitchStatus="
+				+ EDoorSwitchStatus + ", silentModeStatus=" + silentModeStatus + ", bluetoothLockStatus="
+				+ bluetoothLockStatus + "]";
 	}
 	
 	

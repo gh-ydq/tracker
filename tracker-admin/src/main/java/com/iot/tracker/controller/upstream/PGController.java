@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iot.tracker.dto.upstream.pg.PGPacketDto;
 import com.iot.tracker.service.PGService;
 
@@ -26,5 +28,18 @@ public class PGController {
 		pgService.savePGMsg(pgPacketDto);
 	}
 	
+	public static void main(String[] args) {
+		PGPacketDto pg = new PGPacketDto();
+		ObjectMapper obj = new ObjectMapper();
+		String aa = "";
+		try {
+			aa = obj.writeValueAsString(pg);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("--------------------"+aa);
+		
+	}
 	
 }

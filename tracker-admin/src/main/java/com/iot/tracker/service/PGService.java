@@ -42,16 +42,16 @@ public class PGService {
 	
 	private DataPackageLog buildDataPackageLog(PGPacketDto pgPacketDto,String userCode){
 		DataPackageLog dataPackageLog = new DataPackageLog();
-		dataPackageLog.setBluetoothLockStatus(Integer.valueOf(pgPacketDto.getPgSubStatus().getBluetoothLockStatus()));
+		dataPackageLog.setBluetoothLockStatus(Integer.valueOf(pgPacketDto.getBluetoothLockStatus()));
 		dataPackageLog.setCreatedTime(new Date());
 		dataPackageLog.setDataType("0000");
 		dataPackageLog.setDeviceCode(pgPacketDto.getImei()+"");
-		dataPackageLog.seteDoorSwitchStatus(Integer.valueOf(pgPacketDto.getPgSubStatus().getEDoorSwitchStatus()));
+		dataPackageLog.seteDoorSwitchStatus(Integer.valueOf(pgPacketDto.getEDoorSwitchStatus()));
 		dataPackageLog.setHight(Integer.valueOf(pgPacketDto.getHight()));
 		dataPackageLog.setLat(Double.valueOf(pgPacketDto.getLat()));
 		dataPackageLog.setLgt(Double.valueOf(pgPacketDto.getLng()));
-		dataPackageLog.setPowerStatus(Integer.valueOf(pgPacketDto.getPgSubStatus().getPowerStatus()));
-		dataPackageLog.setSilentModeStatus(Integer.valueOf(pgPacketDto.getPgSubStatus().getSilentModeStatus()));
+		dataPackageLog.setPowerStatus(Integer.valueOf(pgPacketDto.getPowerStatus()));
+		dataPackageLog.setSilentModeStatus(Integer.valueOf(pgPacketDto.getSilentModeStatus()));
 		dataPackageLog.setSpeed(Double.valueOf(pgPacketDto.getSpeed()));
 		dataPackageLog.setStar(Integer.valueOf(pgPacketDto.getStar()));
 		dataPackageLog.setStatus(Integer.valueOf(pgPacketDto.getStatus()));
