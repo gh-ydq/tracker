@@ -34,7 +34,7 @@ public class PGService {
 	private String getUserCode(String deviceCode){
 		UserDeviceInfo userDeviceInfo = userdeviceInfoManage.findByDeviceCode(deviceCode);
 		if(userDeviceInfo != null){
-			return userDeviceInfo.getDeviceCode();
+			return userDeviceInfo.getUserCode();
 		}else{
 			return null;
 		}
