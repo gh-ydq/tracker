@@ -16,6 +16,9 @@ public enum BizEnum {
 	
 	USER_PASSWORD_ERROR("1003","密码错误"),
 	SMS_VERIFY_CODE_FAIL("1001","短信验证码错误,请重新获取"),
+	
+	// 设备相关CODE
+	DEVICE_EXIST("2001","用户该设备已添加"),
 
 
 	/* --------下面是信息类的,以L_PHONE,L_SMS_或者L_JMS_开头,区间[23000-23999]-------- */
@@ -38,6 +41,9 @@ public enum BizEnum {
 	E_SMS_CODE_SEND_FAIL("13004","手机短信码发送失败"),
 	E_SMS_CODE_VALID_FAIL("13005","手机短信码校验失败"),
 	E_SMS_CODE_INVALID("13006","手机短信码错误或已失效"),
+	
+	
+	
 
 	;
 

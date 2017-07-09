@@ -29,6 +29,14 @@ public class UserDeviceInfoService {
 		return userDeviceInfos.size()>0?userDeviceInfos.get(0):null;
 	}
 	
+	public UserDeviceInfo findByUserCodeAndDeviceCode(String userCode,String deviceCode){
+		UserDeviceInfoExample example = new UserDeviceInfoExample();
+		example.createCriteria().andUserCodeEqualTo(userCode)
+		.andDeviceCodeEqualTo(deviceCode);
+		List<UserDeviceInfo> userDeviceInfos = userDeviceInfoMapper.selectByExample(example);
+		return userDeviceInfos.size()>0?userDeviceInfos.get(0):null;
+	}
+	
 	public List<UserDeviceInfo> findUserDeviceInfos(String userCode){
 		UserDeviceInfoExample example = new UserDeviceInfoExample();
 		example.createCriteria().andUserCodeEqualTo(userCode);

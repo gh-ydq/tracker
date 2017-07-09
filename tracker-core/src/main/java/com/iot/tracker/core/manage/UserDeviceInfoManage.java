@@ -25,4 +25,8 @@ public class UserDeviceInfoManage {
 	public UserDeviceInfo findByDeviceCode(String deviceCode){
 		return userDeviceInfoService.findByDeviceCode(deviceCode);
 	}
+	
+	public UserDeviceInfo findByUserCodeAndDeviceCode(String userCode,String deviceCode){
+		return userDeviceInfoService.findByUserCodeAndDeviceCode(userCode, deviceCode);
+	}
 }
