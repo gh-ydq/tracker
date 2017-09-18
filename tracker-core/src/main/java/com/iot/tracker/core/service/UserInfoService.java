@@ -1,17 +1,13 @@
 package com.iot.tracker.core.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.iot.tracker.core.constants.AppCreditConstants;
-import com.iot.tracker.core.constants.CacheKey;
 import com.iot.tracker.core.dao.UserInfoMapper;
-import com.iot.tracker.core.dto.UserDto;
-import com.iot.tracker.core.util.MD5Util;
-import com.iot.tracker.core.util.RedisUtil;
 import com.iot.tracker.core.vo.UserInfo;
 import com.iot.tracker.core.vo.UserInfoExample;
 
@@ -47,6 +43,8 @@ public class UserInfoService {
 		userInfo.setUserCode(userCode);
 		userInfo.setPhoneNo(phoneNo);
 		userInfo.setPassword(password);
+		userInfo.setCreateTime(new Date());
+		userInfo.setUpdatedTime(new Date());
 		return userInfo;
 	}
 }

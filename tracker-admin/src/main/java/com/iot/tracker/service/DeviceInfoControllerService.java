@@ -51,8 +51,12 @@ public class DeviceInfoControllerService {
 		for(UserDeviceInfo userDeviceInfo : userDeviceInfos){
 			DeviceResultDto deviceResultDto = new DeviceResultDto();
 			deviceResultDto.setDeviceCode(userDeviceInfo.getDeviceCode());
-			deviceResultDto.setLat(userDeviceInfo.getLat());
-			deviceResultDto.setLgt(userDeviceInfo.getLgt());
+			if(userDeviceInfo.getLat() != null){
+				deviceResultDto.setLat(userDeviceInfo.getLat());
+			}
+			if(userDeviceInfo.getLgt() != null){
+				deviceResultDto.setLgt(userDeviceInfo.getLgt());
+			}
 			deviceResultDtos.add(deviceResultDto);
 		}
 		return deviceResultDtos;

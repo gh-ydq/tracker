@@ -1,5 +1,6 @@
 package com.iot.tracker.core.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,16 @@ public class UserDeviceInfoService {
 		UserDeviceInfo record = new UserDeviceInfo();
 		record.setUserCode(userCode);
 		record.setDeviceCode(deviceCode);
+		record.setCreateTime(new Date());
+		record.setUpdateTime(new Date());
 		return record;
 	}
 	
+	public void updateUserDeviceInfo(UserDeviceInfo userDeviceInfo,String userCode,String deviceCode){
+		UserDeviceInfoExample example = new UserDeviceInfoExample();
+		example.createCriteria().andUserCodeEqualTo(userCode)
+		.andDeviceCodeEqualTo(deviceCode);
+		userDeviceInfoMapper.updateByExampleSelective(userDeviceInfo, example);
+	}
 	
 }

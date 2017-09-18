@@ -26,10 +26,14 @@ public class PGController {
 	public void savePGMsg(@RequestBody PGPacketDto pgPacketDto){
 		logger.info("PG包请求参数{}",pgPacketDto.toString());
 		pgService.savePGMsg(pgPacketDto);
+		pgService.updateUserDeviceInfo(pgPacketDto);
 	}
 	
 	public static void main(String[] args) {
 		PGPacketDto pg = new PGPacketDto();
+		pg.setImei(234567);
+		pg.setLat(12345678.67f);
+		pg.setLng(45674567.7f);
 		ObjectMapper obj = new ObjectMapper();
 		String aa = "";
 		try {

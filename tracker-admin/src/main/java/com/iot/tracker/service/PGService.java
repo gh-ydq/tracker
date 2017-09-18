@@ -25,12 +25,17 @@ public class PGService {
 	
 	@Transactional
 	public void savePGMsg(PGPacketDto pgPacketDto){
-		logger.info("PG包请求参数{}",pgPacketDto.toString());
 		String userCode = getUserCode(pgPacketDto.getImei()+"");
 		DataPackageLog dataPackageLog = buildDataPackageLog(pgPacketDto, userCode);
 		dataPackageLogManage.saveDataPackageLog(dataPackageLog);
 	}
 	
+	@Transactional
+	public void updateUserDeviceInfo(PGPacketDto pgPacketDto){
+		String userCode = getUserCode(pgPacketDto.getImei()+"");
+		UserDeviceInfo userDeviceInfo = buildUserDeviceInfo(pgPacketDto, userCode);
+		userdeviceInfoManage.updateUserDeviceInfo(userDeviceInfo, userCode, pgPacketDto.getImei()+"");
+	}
 	private String getUserCode(String deviceCode){
 		UserDeviceInfo userDeviceInfo = userdeviceInfoManage.findByDeviceCode(deviceCode);
 		if(userDeviceInfo != null){
@@ -43,7 +48,6 @@ public class PGService {
 	private DataPackageLog buildDataPackageLog(PGPacketDto pgPacketDto,String userCode){
 		DataPackageLog dataPackageLog = new DataPackageLog();
 		dataPackageLog.setBluetoothLockStatus(Integer.valueOf(pgPacketDto.getBluetoothLockStatus()));
-		dataPackageLog.setCreatedTime(new Date());
 		dataPackageLog.setDataType("0000");
 		dataPackageLog.setDeviceCode(pgPacketDto.getImei()+"");
 		dataPackageLog.seteDoorSwitchStatus(Integer.valueOf(pgPacketDto.getEDoorSwitchStatus()));
@@ -56,8 +60,17 @@ public class PGService {
 		dataPackageLog.setStar(Integer.valueOf(pgPacketDto.getStar()));
 		dataPackageLog.setStatus(Integer.valueOf(pgPacketDto.getStatus()));
 		dataPackageLog.setTime(Integer.valueOf(pgPacketDto.getTime()));
+		dataPackageLog.setCreatedTime(new Date());
 		dataPackageLog.setUpdateTime(new Date());
 		dataPackageLog.setUserCode(userCode);
 		return dataPackageLog;
+	}
+	
+	public UserDeviceInfo buildUserDeviceInfo(PGPacketDto pgPacketDto,String userCode){
+		UserDeviceInfo userDeviceInfo = new UserDeviceInfo();
+		userDeviceInfo.setLat(Double.valueOf(pgPacketDto.getLat()));
+		userDeviceInfo.setLgt(Double.valueOf(pgPacketDto.getLng()));
+		userDeviceInfo.setUpdateTime(new Date());
+		return userDeviceInfo;
 	}
 }
