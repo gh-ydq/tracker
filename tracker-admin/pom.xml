@@ -28,6 +28,11 @@
 	    <version>0.0.1-SNAPSHOT</version>
        </dependency>
         
+        <dependency>
+	    	<groupId>com.qdigo.iotsdk</groupId>
+		    <artifactId>iotsdk</artifactId>
+		    <version>1.0</version>
+	    </dependency>
     </dependencies>
     
 </project>
