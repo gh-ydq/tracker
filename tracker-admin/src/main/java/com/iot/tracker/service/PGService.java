@@ -31,11 +31,11 @@ public class PGService {
 	}
 	
 	@Transactional
-	public void updateUserDeviceInfo(PGPacketDto pgPacketDto){
+	public void updateUserDeviceLatLgt(PGPacketDto pgPacketDto){
 		String userCode = getUserCode(pgPacketDto.getImei()+"");
-		UserDeviceInfo userDeviceInfo = buildUserDeviceInfo(pgPacketDto, userCode);
-		userdeviceInfoManage.updateUserDeviceInfo(userDeviceInfo, userCode, pgPacketDto.getImei()+"");
+		userdeviceInfoManage.updateUserDeviceInfo(buildUserDeviceInfo(pgPacketDto), userCode, pgPacketDto.getImei()+"");
 	}
+	
 	private String getUserCode(String deviceCode){
 		UserDeviceInfo userDeviceInfo = userdeviceInfoManage.findByDeviceCode(deviceCode);
 		if(userDeviceInfo != null){
@@ -43,6 +43,14 @@ public class PGService {
 		}else{
 			return null;
 		}
+	}
+	
+	private UserDeviceInfo buildUserDeviceInfo(PGPacketDto pgPacketDto){
+		UserDeviceInfo userDeviceInfo = new UserDeviceInfo();
+		userDeviceInfo.setLat(Double.valueOf(pgPacketDto.getLat()));
+		userDeviceInfo.setLgt(Double.valueOf(pgPacketDto.getLng()));
+		userDeviceInfo.setUpdateTime(new Date());
+		return userDeviceInfo;
 	}
 	
 	private DataPackageLog buildDataPackageLog(PGPacketDto pgPacketDto,String userCode){

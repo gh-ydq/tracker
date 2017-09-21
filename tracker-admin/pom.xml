@@ -27,12 +27,45 @@
 	    <artifactId>tracker-core</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
        </dependency>
-        
         <dependency>
-	    	<groupId>com.qdigo.iotsdk</groupId>
-		    <artifactId>iotsdk</artifactId>
-		    <version>1.0</version>
-	    </dependency>
+            <groupId>com.qdigo.iotsdk</groupId>
+    		<artifactId>iotsdk</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
+<!--     <build> -->
+<!--         <finalName>tracker-admin</finalName> -->
+<!--         <pluginManagement> -->
+<!--             <plugins> -->
+<!--             	<plugin>     -->
+<!-- 	            <artifactId>maven-compiler-plugin</artifactId>     -->
+<!-- 	            <version>2.3.2</version>     -->
+<!-- 	            <configuration>     -->
+<!-- 	                <source>1.8</source>     -->
+<!-- 	                <target>1.8</target>     -->
+<!-- 	                <encoding>UTF-8</encoding>     -->
+<!-- 	            </configuration>     -->
+<!-- 	        </plugin>     -->
+            
+<!--                 <plugin> -->
+<!--                    <groupId>org.apache.maven.plugins</groupId> -->
+<!--                    <artifactId>maven-war-plugin</artifactId> -->
+<!--                         <configuration> -->
+<!--                          <warName>tracker-admin</warName> -->
+<!--                             <webResources> -->
+<!--                                 <resource> -->
+<!--                                     <directory>${project.basedir}/lib</directory> -->
+<!--                                     <targetPath>WEB-INF/lib</targetPath> -->
+<!--                                     <includes> -->
+<!--                                         <include>**/*.jar</include> -->
+<!--                                     </includes> -->
+<!--                                 </resource> -->
+<!--                             </webResources> -->
+<!--                         </configuration> -->
+<!--                  </plugin> -->
+<!--             </plugins> -->
+<!--         </pluginManagement> -->
+<!--     </build> -->
     
+   
 </project>

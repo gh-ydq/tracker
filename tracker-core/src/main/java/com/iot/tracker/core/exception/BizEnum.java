@@ -19,6 +19,7 @@ public enum BizEnum {
 	
 	// 设备相关CODE
 	DEVICE_EXIST("2001","用户该设备已添加"),
+	DEVICE_CMD_NOT_EXIST("2002","设备命令不存在"),
 
 
 	/* --------下面是信息类的,以L_PHONE,L_SMS_或者L_JMS_开头,区间[23000-23999]-------- */

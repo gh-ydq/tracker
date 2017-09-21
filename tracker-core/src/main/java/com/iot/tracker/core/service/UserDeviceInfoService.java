@@ -44,6 +44,12 @@ public class UserDeviceInfoService {
 		return userDeviceInfoMapper.selectByExample(example);
 	}
 	
+	public void updateUserDeviceInfo(UserDeviceInfo userDeviceInfo,String userCode,String deviceCode){
+		UserDeviceInfoExample example = new UserDeviceInfoExample();
+		example.createCriteria().andUserCodeEqualTo(userCode).andDeviceCodeEqualTo(deviceCode);
+	    userDeviceInfoMapper.updateByExampleSelective(userDeviceInfo, example);
+	}
+	
 	private UserDeviceInfo buildUserDeviceInfo(String userCode,String deviceCode){
 		UserDeviceInfo record = new UserDeviceInfo();
 		record.setUserCode(userCode);
@@ -51,13 +57,6 @@ public class UserDeviceInfoService {
 		record.setCreateTime(new Date());
 		record.setUpdateTime(new Date());
 		return record;
-	}
-	
-	public void updateUserDeviceInfo(UserDeviceInfo userDeviceInfo,String userCode,String deviceCode){
-		UserDeviceInfoExample example = new UserDeviceInfoExample();
-		example.createCriteria().andUserCodeEqualTo(userCode)
-		.andDeviceCodeEqualTo(deviceCode);
-		userDeviceInfoMapper.updateByExampleSelective(userDeviceInfo, example);
 	}
 	
 }
