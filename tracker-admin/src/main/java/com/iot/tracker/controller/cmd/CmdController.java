@@ -13,8 +13,8 @@ import com.qdigo.iotsdk.DeviceCtl;
 public class CmdController {
 	private Logger logger = LoggerFactory.getLogger(CmdController.class);
 	@RequestMapping(value="/deviceSwitch")
-	public void deviceSwitch(@RequestParam("powerSwitch") String powerSwitch,@RequestParam("imei") long imei){
-		logger.info("发送下行命令powerSwitch={},imei={}",powerSwitch,imei);
+	public void deviceSwitch(@RequestParam("cmdType") String cmdType,@RequestParam("imei") long imei){
+		logger.info("发送下行命令cmdType={},imei={}",cmdType,imei);
 		DeviceCtl deviceCtl = new DeviceCtl();
 		deviceCtl.deviceStart(imei);
 	}
