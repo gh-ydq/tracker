@@ -3,6 +3,7 @@ package com.iot.tracker.core.constants;
 public enum PowerSwitchEnum {
 	POWERS_WITCH_START("1","设备点火"),
 	POWERS_WITCH_STOP("0","设备熄火"),
+	SENSOR_DEVICE("12","传感器设置")
 	;
 	private String cmd;
 	private String dec;

@@ -11,8 +11,10 @@ import com.iot.tracker.core.constants.PowerSwitchEnum;
 import com.iot.tracker.core.exception.BizEnum;
 import com.iot.tracker.core.exception.BizException;
 import com.iot.tracker.core.util.WebJsonResult;
+import com.iot.tracker.dto.downstream.DeviceSensor;
 import com.iot.tracker.dto.downstream.DeviceSwitchReqDto;
 import com.qdigo.iotsdk.DeviceCtl;
+import com.qdigo.iotsdk.constant.CmdEnum;
 
 @RequestMapping(value = "/downstream")
 @RestController
@@ -35,5 +37,21 @@ public class DeviceCtlController {
 			throw new BizException(BizEnum.DEVICE_CMD_NOT_EXIST);
 		}
 		return WebJsonResult.buildSuccessResult("cmd success");
+	}
+	
+	
+	@RequestMapping(value="/deviceSensor")
+	@ResponseBody
+	public WebJsonResult<String> deviceSensor(@RequestBody DeviceSensor deviceSensor){
+		logger.info("发送下行命令cmdType={},imei={}",deviceSensor.getCmdType(),deviceSensor.getImei());
+		String switchCmd = deviceSensor.getCmdType();
+		long imei = deviceSensor.getImei();
+		DeviceCtl deviceCtl = new DeviceCtl();
+		if(PowerSwitchEnum.SENSOR_DEVICE.getCmd().equals(switchCmd)){
+			deviceCtl.sensor(imei, CmdEnum.CMD_SENSOR, deviceSensor.getParam());
+		}else{
+			throw new BizException(BizEnum.DEVICE_SENSOR_CMD_NOT_EXIST);
+		}
+		return WebJsonResult.buildSuccessResult("sensor cmd success");
 	}
 }
