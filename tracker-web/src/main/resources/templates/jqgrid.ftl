@@ -337,7 +337,7 @@
                 {name:'city',index:'productName',width:200}
             ],
             viewrecords : true,
-            rowNum:25,
+            rowNum:2,
             rowList:[2,25,50,100],
             pager : pager_selector,
             altRows: true,

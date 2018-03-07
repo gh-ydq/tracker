@@ -23,7 +23,7 @@ public class WebController {
     @RequestMapping(value="/",method = RequestMethod.GET)
     public String home(){
 
-        return "hello";
+        return "jqgrid";
     }
 
 

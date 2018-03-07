@@ -42,9 +42,9 @@ public class LedController extends AbstractController{
 //        List<User> destUsers = getUser(users);
         JqGridPage jqGridPage = new JqGridPage();
 //        PageInfo<User> pages = new PageInfo<User>(destUsers);
-        jqGridPage.setPage(pages.getNumber());
+        jqGridPage.setPage(pages.getNumber()+1);
         jqGridPage.setTotal(pages.getTotalPages());
-        jqGridPage.setRecords(pages.getSize());
+        jqGridPage.setRecords((int)pages.getTotalElements());
         jqGridPage.setRows(pages.getContent());
         SpringWebUtil.getResponse().setHeader("Tansfer-Encoding","chunked");
         this.renderJson(jqGridPage);
